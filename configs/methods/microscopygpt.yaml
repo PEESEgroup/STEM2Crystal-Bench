@@ -1,0 +1,5 @@
+# MicroscopyGPT (Choudhary et al., 2025) — fine-tuned vision LLM. Image + composition.
+name: microscopygpt
+k: 5
+adapter: outputs/microscopygpt           # or $MICROSCOPYGPT_ADAPTER (LoRA on the 11B VLM)
+max_new_tokens: 1554

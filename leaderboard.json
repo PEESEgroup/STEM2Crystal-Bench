@@ -1,0 +1,336 @@
+{
+  "title": "STEM2Crystal-Bench",
+  "subtitle": "Microscopy-guided crystal structure reconstruction",
+  "updated": "2026-06-10",
+  "links": {
+    "paper": "https://github.com/PEESEgroup/STEM2Crystal-Bench",
+    "dataset": "https://huggingface.co/datasets/gary23ai/STEM2Crystal-Bench",
+    "code": "https://github.com/PEESEgroup/STEM2Crystal-Bench"
+  },
+  "metrics": {
+    "MinRMS_median": {
+      "label": "MinRMS@K med",
+      "higher_better": false
+    },
+    "MinRMS_mean": {
+      "label": "MinRMS@K mean",
+      "higher_better": false
+    },
+    "Hit5": {
+      "label": "Hit@5",
+      "higher_better": true
+    },
+    "Hit1": {
+      "label": "Hit@1",
+      "higher_better": true
+    },
+    "Match_abs": {
+      "label": "Match_abs",
+      "higher_better": true
+    },
+    "SG_Acc": {
+      "label": "SG-Acc",
+      "higher_better": true
+    },
+    "RMSD_A": {
+      "label": "RMSD (Å)",
+      "higher_better": false
+    },
+    "W1_b": {
+      "label": "W₁(b)",
+      "higher_better": false
+    },
+    "W1_gamma": {
+      "label": "W₁(γ)",
+      "higher_better": false
+    }
+  },
+  "benchmarks": {
+    "synthetic": {
+      "name": "Synthetic benchmark",
+      "description": "1021-structure test set, three controlled noise regimes (Table 1).",
+      "columns": [
+        "MinRMS_median",
+        "MinRMS_mean",
+        "Hit5",
+        "Hit1",
+        "Match_abs",
+        "SG_Acc",
+        "W1_b",
+        "W1_gamma"
+      ],
+      "splits": {
+        "low": [
+          {
+            "method": "mattergen",
+            "MinRMS_median": null,
+            "MinRMS_mean": null,
+            "Hit5": 0.0,
+            "Hit1": 0.0,
+            "Match_abs": 0.0,
+            "SG_Acc": 0.002,
+            "W1_b": 0.6611,
+            "W1_gamma": 12.7919
+          },
+          {
+            "method": "microscopygpt",
+            "MinRMS_median": 0.1759,
+            "MinRMS_mean": 0.167,
+            "Hit5": 0.1371,
+            "Hit1": 0.1371,
+            "Match_abs": 0.1234,
+            "SG_Acc": 0.093,
+            "W1_b": 1.3988,
+            "W1_gamma": 3.9974
+          },
+          {
+            "method": "diffcsp",
+            "MinRMS_median": 0.0666,
+            "MinRMS_mean": 0.125,
+            "Hit5": 0.7973,
+            "Hit1": 0.5426,
+            "Match_abs": 0.616,
+            "SG_Acc": 0.2214,
+            "W1_b": 32.8835,
+            "W1_gamma": 2.2427
+          },
+          {
+            "method": "sccd",
+            "MinRMS_median": 0.0536,
+            "MinRMS_mean": 0.1206,
+            "Hit5": 0.8217,
+            "Hit1": 0.5867,
+            "Match_abs": 0.7855,
+            "SG_Acc": 0.2693,
+            "W1_b": 0.1331,
+            "W1_gamma": 2.0072
+          }
+        ],
+        "mid": [
+          {
+            "method": "mattergen",
+            "MinRMS_median": null,
+            "MinRMS_mean": null,
+            "Hit5": 0.0,
+            "Hit1": 0.0,
+            "Match_abs": 0.0,
+            "SG_Acc": 0.002,
+            "W1_b": 0.6611,
+            "W1_gamma": 12.7919
+          },
+          {
+            "method": "microscopygpt",
+            "MinRMS_median": 0.1547,
+            "MinRMS_mean": 0.1726,
+            "Hit5": 0.1361,
+            "Hit1": 0.1361,
+            "Match_abs": 0.1283,
+            "SG_Acc": 0.1019,
+            "W1_b": 1.4825,
+            "W1_gamma": 3.2387
+          },
+          {
+            "method": "diffcsp",
+            "MinRMS_median": 0.0666,
+            "MinRMS_mean": 0.125,
+            "Hit5": 0.7973,
+            "Hit1": 0.5426,
+            "Match_abs": 0.616,
+            "SG_Acc": 0.2214,
+            "W1_b": 32.8835,
+            "W1_gamma": 2.2427
+          },
+          {
+            "method": "sccd",
+            "MinRMS_median": 0.063,
+            "MinRMS_mean": 0.1234,
+            "Hit5": 0.8257,
+            "Hit1": 0.5769,
+            "Match_abs": 0.7855,
+            "SG_Acc": 0.2752,
+            "W1_b": 0.1328,
+            "W1_gamma": 1.9814
+          }
+        ],
+        "high": [
+          {
+            "method": "mattergen",
+            "MinRMS_median": null,
+            "MinRMS_mean": null,
+            "Hit5": 0.0,
+            "Hit1": 0.0,
+            "Match_abs": 0.0,
+            "SG_Acc": 0.002,
+            "W1_b": 0.6611,
+            "W1_gamma": 12.7919
+          },
+          {
+            "method": "microscopygpt",
+            "MinRMS_median": 0.1555,
+            "MinRMS_mean": 0.1549,
+            "Hit5": 0.1312,
+            "Hit1": 0.1312,
+            "Match_abs": 0.1263,
+            "SG_Acc": 0.0881,
+            "W1_b": 1.437,
+            "W1_gamma": 2.6711
+          },
+          {
+            "method": "diffcsp",
+            "MinRMS_median": 0.0666,
+            "MinRMS_mean": 0.125,
+            "Hit5": 0.7973,
+            "Hit1": 0.5426,
+            "Match_abs": 0.616,
+            "SG_Acc": 0.2214,
+            "W1_b": 32.8835,
+            "W1_gamma": 2.2427
+          },
+          {
+            "method": "sccd",
+            "MinRMS_median": 0.0612,
+            "MinRMS_mean": 0.123,
+            "Hit5": 0.8286,
+            "Hit1": 0.5847,
+            "Match_abs": 0.7963,
+            "SG_Acc": 0.2703,
+            "W1_b": 0.126,
+            "W1_gamma": 2.1703
+          }
+        ]
+      }
+    },
+    "real5": {
+      "name": "Real-5 (real STEM monolayers)",
+      "description": "5 genuine 2D-monolayer real STEM images with single-layer ground truth (Table 2). Zero-shot, no templating.",
+      "columns": [
+        "Hit5",
+        "MinRMS_median",
+        "RMSD_A",
+        "SG_Acc"
+      ],
+      "splits": {
+        "real": [
+          {
+            "method": "automat",
+            "Hit5": 0.0,
+            "MinRMS_median": null,
+            "RMSD_A": null,
+            "SG_Acc": 0.0
+          },
+          {
+            "method": "microscopygpt",
+            "Hit5": 0.6,
+            "MinRMS_median": 0.148,
+            "RMSD_A": 0.576,
+            "SG_Acc": 0.0
+          },
+          {
+            "method": "diffcsp",
+            "Hit5": 1.0,
+            "MinRMS_median": 0.145,
+            "RMSD_A": 0.559,
+            "SG_Acc": 0.0
+          },
+          {
+            "method": "sccd",
+            "Hit5": 1.0,
+            "MinRMS_median": 0.015,
+            "RMSD_A": 0.057,
+            "SG_Acc": 0.2
+          }
+        ]
+      }
+    }
+  },
+  "methods": {
+    "sccd": {
+      "name": "SCCD",
+      "full_name": "From Noisy STEM to Crystal Structure: Evidence-Structure CoDiffusion under Composition Constraints",
+      "authors": "Guangyao Chen, Fengqi You",
+      "tag": "ours",
+      "conditioning": "image + composition",
+      "summary": "Two coupled diffusion branches — one for image evidence, one for the crystal — that exchange information in both directions.",
+      "description": "SCCD separates the problem into two parts and solves them together. An evidence-diffusion branch denoises a structure-aligned, mask-like evidence map from the noisy STEM image. A crystal-diffusion branch, following DiffCSP, denoises the lattice and the per-atom fractional coordinates under the given composition. The two branches exchange a global feature in both directions at every diffusion step: the structure feature constrains evidence denoising, and an image feature (added by FiLM-style modulation) gives the structure branch noise-robust geometric cues. Training runs in three phases — an evidence denoiser, a composition-only structure model, then the joint co-diffusion. On the synthetic benchmark SCCD has the best value on each metric at every noise level; on Real-5 its RMSD is about ten times lower than the composition-only baselines.",
+      "highlights": [
+        "Image evidence and structure are co-diffused in both directions, not mapped in one shot.",
+        "Best Hit@1, Hit@5, Match_abs, SG-Acc and lattice calibration at every noise level.",
+        "On Real-5, about 10x lower RMSD than DiffCSP and the only method with non-zero SG-Acc."
+      ],
+      "links": {
+        "code": "https://github.com/PEESEgroup/STEM2Crystal-Bench/tree/main/stem2crystal/methods",
+        "paper": "https://github.com/PEESEgroup/STEM2Crystal-Bench"
+      },
+      "venue": "KDD 2026 (Oral)",
+      "figure": "assets/figures/sccd.jpg",
+      "figure_note": "Architecture overview — from the paper."
+    },
+    "diffcsp": {
+      "name": "DiffCSP",
+      "full_name": "Diffusion Crystal Structure Prediction",
+      "authors": "Jiao et al., NeurIPS 2023",
+      "tag": "baseline",
+      "conditioning": "composition only",
+      "summary": "Equivariant diffusion that generates the lattice and coordinates from a composition. Does not use the image.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2309.04475"
+      },
+      "venue": "NeurIPS 2023",
+      "figure": "assets/figures/diffcsp.png",
+      "description": "DiffCSP predicts a crystal by joint equivariant diffusion: given a composition it denoises the lattice and the fractional coordinates together with a periodic, SE(3)-equivariant network. It does not use the STEM image, so it often finds a matching structure within a few samples but gets the absolute lattice scale wrong on this benchmark.",
+      "figure_note": "Figure 2 from the DiffCSP paper (Jiao et al., NeurIPS 2023)."
+    },
+    "microscopygpt": {
+      "name": "MicroscopyGPT",
+      "full_name": "MicroscopyGPT",
+      "authors": "Choudhary et al., 2025",
+      "tag": "baseline",
+      "conditioning": "image + composition",
+      "summary": "A fine-tuned vision-language model that reads the image and a composition prompt and writes the structure as text.",
+      "links": {
+        "paper": "https://pubs.acs.org/doi/10.1021/acs.jpclett.5c01257"
+      },
+      "venue": "JPCL 2025",
+      "figure": "assets/figures/microscopygpt.jpg",
+      "description": "MicroscopyGPT fine-tunes an 11B vision-language model (LLaMA-3.2 Vision, via LoRA). It reads the STEM image and a composition prompt and writes the structure as text (lattice parameters, species, coordinates), which is then parsed into a CIF. Because the output is a token sequence it can contain format or geometry errors, and it is fairly stable across noise levels.",
+      "figure_note": "Figure 1 from the MicroscopyGPT paper (Choudhary et al., JPCL 2025)."
+    },
+    "mattergen": {
+      "name": "MatterGen",
+      "full_name": "MatterGen",
+      "authors": "Zeni et al., Nature 2025",
+      "tag": "baseline",
+      "conditioning": "de-novo (chemical system)",
+      "summary": "A large de-novo diffusion model; samples crystals by chemical system, then we keep formula matches.",
+      "links": {
+        "paper": "https://www.nature.com/articles/s41586-025-08628-5"
+      },
+      "venue": "Nature 2025",
+      "figure": "assets/figures/mattergen.png",
+      "description": "MatterGen is a large de-novo diffusion model for inorganic crystals. It samples from its prior conditioned on a chemical system rather than an exact formula, and does not use the image. For this benchmark we keep the samples whose reduced formula matches the target, so its formula-level hit rate is low.",
+      "figure_note": "Figure 1 from the MatterGen paper (Zeni et al., Nature 2025)."
+    },
+    "automat": {
+      "name": "AutoMat",
+      "full_name": "AutoMat",
+      "authors": "Yang et al., 2025",
+      "tag": "baseline",
+      "conditioning": "image + template retrieval",
+      "summary": "An agentic pipeline that denoises the image, retrieves a template, and reconstructs under symmetry constraints.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2505.12650"
+      },
+      "venue": "arXiv 2025",
+      "description": "AutoMat is an agentic pipeline that denoises the image, retrieves a template from a library of simulated STEM projections, and reconstructs the structure under symmetry constraints. It works well when a suitable template exists, but its library does not cover the Real-5 monolayers, so it returns no match there.",
+      "figure": "assets/figures/automat.png",
+      "figure_note": "Figure 3 from the AutoMat paper (Yang et al., 2025)."
+    }
+  },
+  "citation": {
+    "title": "From Noisy STEM to Crystal Structure: Evidence-Structure CoDiffusion under Composition Constraints",
+    "authors": "Guangyao Chen, Fengqi You",
+    "venue": "KDD 2026 (Oral)",
+    "bibtex": "@inproceedings{chen2026stem2crystal,\n  title     = {From Noisy STEM to Crystal Structure: Evidence-Structure CoDiffusion under Composition Constraints},\n  author    = {Chen, Guangyao and You, Fengqi},\n  booktitle = {Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)},\n  year      = {2026},\n  note      = {Oral presentation}\n}"
+  },
+  "figure_credit": "Method architecture figures are reproduced from each method's paper for academic comparison; © their respective authors."
+}

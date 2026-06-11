@@ -1,0 +1,20 @@
+# Evaluation settings for STEM2Crystal-Bench (paper Section 5.2).
+# Used by scripts/evaluate.py (--config configs/eval.yaml).
+k: 5                 # candidates scored per sample
+symprec: 0.1         # spglib tolerance for SG-Acc (3D space group)
+n_jobs: null         # parallel workers over samples (null -> min(32, cpu_count))
+
+# StructureMatcher tolerances per benchmark (these reproduce the paper tables exactly).
+benchmarks:
+  synthetic:
+    stol: 0.5
+    ltol: 0.3
+    angle_tol: 10
+    primitive_cell: true
+    attempt_supercell: false
+  real5:
+    stol: 0.3
+    ltol: 0.3
+    angle_tol: 15
+    primitive_cell: true
+    attempt_supercell: true

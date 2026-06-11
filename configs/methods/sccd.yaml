@@ -1,0 +1,11 @@
+# SCCD — STEM2Crystal CoDiffusion (paper model). One built-in method among several.
+name: sccd
+k: 5
+# Path to the SCCD research stack (DiffCSP + EMDiffuse). Or set $SCCD_HOME.
+home: null
+# Checkpoints (fetch: scripts/download_models.py --model sccd). Or set $SCCD_PHASE3 / $SCCD_PHASE1.
+checkpoints:
+  phase1_evidence: outputs/sccd/phase1_evidence/best_evidence_unet.pt
+  phase3_joint:    outputs/sccd/phase3_joint/best.pt
+seed: 42
+sampler: {steps: 1000, temperature: 1.0}

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stem2crystal-bench"
+version = "3.0.0"
+description = "STEM2Crystal-Bench: a benchmark for microscopy-guided crystal structure reconstruction (with SCCD + baselines)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = [
+  "numpy>=1.23", "scipy>=1.9", "pymatgen>=2023.8",
+  "huggingface_hub>=0.20", "Pillow>=9.0", "pyyaml>=6.0", "tqdm>=4.64",
+]
+
+[project.optional-dependencies]
+model = ["torch>=2.0", "torch-geometric>=2.3", "torch-scatter>=2.1"]
+viz = ["ase>=3.22", "matplotlib>=3.5"]
+
+[project.urls]
+Dataset = "https://huggingface.co/datasets/gary23ai/STEM2Crystal-Bench"
+
+[tool.setuptools.packages.find]
+include = ["stem2crystal*"]

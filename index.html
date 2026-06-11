@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>STEM2Crystal-Bench — microscopy-guided crystal structure reconstruction</title>
+<meta name="description" content="A benchmark for recovering simulation-ready crystal structures from noisy STEM images. Live leaderboard for SCCD, DiffCSP, MicroscopyGPT, MatterGen." />
+<link rel="preconnect" href="https://raw.githubusercontent.com" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo.svg" alt="STEM2Crystal-Bench logo" />
+    <div class="badges">
+      <span class="pill">KDD 2026</span>
+      <span class="pill">materials</span>
+      <span class="pill">STEM → CIF</span>
+    </div>
+    <h1>STEM2Crystal&#8209;Bench</h1>
+    <p class="tagline">A benchmark for microscopy-guided crystal structure reconstruction: recover a
+       simulation-ready crystal structure from a single noisy STEM image when the composition is known.</p>
+    <nav class="cta">
+      <a id="lnk-paper"  class="btn primary" href="#">📄 Paper</a>
+      <a id="lnk-data"   class="btn"         href="#">🤗 Dataset</a>
+      <a id="lnk-code"   class="btn"         href="#">⌨︎ Code</a>
+      <a href="#leaderboard" class="btn ghost">🏆 Leaderboard</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="overview" class="card">
+    <h2>The benchmark</h2>
+    <p>The long-term aim is a direct bridge from microscopy to materials: generate a structure straight from a
+       STEM image, then analyze it. This benchmark targets the first and hardest link, recovering a crystal
+       structure from a single noisy image. It pairs STEM images with crystal targets and one evaluation suite,
+       in two parts:</p>
+    <div class="grid2">
+      <div class="tile">
+        <h3>Synthetic</h3>
+        <p><b>1021</b>&nbsp;structures · three controlled noise regimes (low / mid / high). Physics&#8209;inspired
+           forward model: probe blur → Poisson counting → scan jitter → background → readout.</p>
+      </div>
+      <div class="tile">
+        <h3>Real&#8209;5</h3>
+        <p><b>5</b>&nbsp;genuine 2D&#8209;monolayer real STEM images (MoTe₂, WSe₂, WS₂, MoS₂, graphene) with
+           single&#8209;layer ground truth. Zero&#8209;shot, no templating.</p>
+      </div>
+    </div>
+    <p class="muted">Data lives on the Hugging Face Hub (not in the code repo):
+       <code>python scripts/download_benchmark.py --config all</code></p>
+    <p class="muted small">Reading a structure out of a microscopy image is still an open problem. The benchmark is meant to grow: contributions of data (other material classes, more real images) and of new methods are welcome.</p>
+  </section>
+
+  <section id="leaderboard" class="card">
+    <div class="lb-head">
+      <h2>Leaderboard</h2>
+      <div class="controls">
+        <div class="seg" id="bench-seg"></div>
+        <div class="seg" id="split-seg"></div>
+      </div>
+    </div>
+    <p id="bench-desc" class="muted"></p>
+    <div class="table-scroll"><table id="lb-table"><thead></thead><tbody></tbody></table></div>
+    <p class="muted small">↑ higher is better · ↓ lower is better · <b>best per column in bold</b>.
+       Updated <span id="updated">—</span> · read live from GitHub.</p>
+  </section>
+
+  <section id="examples" class="card">
+    <h2>Qualitative comparison</h2>
+    <p class="muted">Each method's rank-1 reconstruction next to the ground truth, labelled with the RMS to GT.</p>
+    <p style="text-align:center;margin:6px 0 0"><img src="assets/figures/comparison.png" alt="reconstruction comparison across methods" style="max-width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;padding:8px"/></p>
+    <p class="muted small">Regenerate from predictions with <code>scripts/plot_comparison.py</code> (needs <code>pip install -e ".[viz]"</code>).</p>
+  </section>
+
+  <section id="methods" class="card">
+    <h2>Methods</h2>
+    <p class="muted">Each method implements the same <code>Method</code> interface and is scored the same way.
+       Click one for details, or <a id="lnk-add" href="#">add your own</a>.</p>
+    <div id="method-cards" class="method-cards"></div>
+    <p id="fig-credit" class="muted small" style="margin-top:14px"></p>
+  </section>
+
+  <section class="card">
+    <h2>Evaluate and contribute</h2>
+    <pre class="code"><code>pip install -e .
+python scripts/download_benchmark.py --config all
+python scripts/evaluate.py --method &lt;name&gt; --benchmark synthetic --noise low   # all paper metrics</code></pre>
+    <p class="muted">Contributions are welcome: a method (through the <code>Method</code> interface, with a row
+       added to <code>leaderboard.json</code>), a new metric (a pure function in <code>eval/metrics.py</code>), or
+       new data (other material classes or more real STEM images) on the
+       <a href="https://huggingface.co/datasets/gary23ai/STEM2Crystal-Bench">dataset page</a>.</p>
+  </section>
+
+  <section id="cite" class="card">
+    <h2>Citation</h2>
+    <p class="muted">If you use STEM2Crystal-Bench or SCCD, please cite:</p>
+    <div id="cite-block"></div>
+  </section>
+
+</main>
+
+<!-- method detail drawer -->
+<div id="drawer" class="drawer" aria-hidden="true">
+  <div class="drawer-panel">
+    <button id="drawer-close" class="drawer-close" aria-label="close">×</button>
+    <div id="drawer-body"></div>
+  </div>
+</div>
+
+<footer class="wrap foot">
+  <span>STEM2Crystal&#8209;Bench · code MIT · data CC&nbsp;BY</span>
+  <span id="foot-links"></span>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

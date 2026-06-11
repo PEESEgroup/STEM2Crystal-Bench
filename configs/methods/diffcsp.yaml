@@ -1,0 +1,5 @@
+# DiffCSP (Jiao et al., NeurIPS 2023) — composition-only diffusion CSP. Image-blind.
+name: diffcsp
+k: 5
+ckpt: outputs/diffcsp/diffcsp2d.ckpt     # or $DIFFCSP_CKPT ; fetch: download_models.py --model diffcsp
+step_lr: 1.0e-5

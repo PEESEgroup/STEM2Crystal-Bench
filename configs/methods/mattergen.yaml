@@ -1,0 +1,7 @@
+# MatterGen (Zeni et al., Nature 2025) — de-novo diffusion; chemical-system conditioned, image-blind.
+name: mattergen
+k: 5
+home: null                               # or $MATTERGEN_HOME (else `pip install mattergen`)
+checkpoint: chemical_system_energy_above_hull
+energy_above_hull: 0.0
+oversample: 8                            # draw k*oversample, keep formula-matched

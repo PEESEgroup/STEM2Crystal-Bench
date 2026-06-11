@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: "STEM2Crystal-Bench: From Noisy STEM to Crystal Structure"
+message: "If you use this software or benchmark, please cite the paper."
+authors:
+  - family-names: Chen
+    given-names: Guangyao
+  - family-names: You
+    given-names: Fengqi
+preferred-citation:
+  type: conference-paper
+  title: "From Noisy STEM to Crystal Structure: Evidence-Structure CoDiffusion under Composition Constraints"
+  collection-title: "Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)"
+  year: 2026
+  notes: "Oral presentation"

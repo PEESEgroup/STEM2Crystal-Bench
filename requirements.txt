@@ -1,0 +1,12 @@
+# core (evaluation + data + method interface)
+numpy>=1.23
+scipy>=1.9
+pymatgen>=2023.8
+huggingface_hub>=0.20
+Pillow>=9.0
+pyyaml>=6.0
+tqdm>=4.64
+# model training / generation (SCCD reference implementation)
+torch>=2.0
+torch-geometric>=2.3
+torch-scatter>=2.1
